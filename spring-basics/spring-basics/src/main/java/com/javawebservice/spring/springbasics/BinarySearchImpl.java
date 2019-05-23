@@ -10,7 +10,7 @@ public BinarySearchImpl(SortAlgorithm sortalgo) {
 
 public int binarySearch(int[] numbers, int numberToSearchFor) {
 	
-	int [] sortednumbers = sortalgo.sortAl(numbers);
+	int [] sortedNumbers = sortalgo.sortAl(numbers);
 	return 0;
 }
 }
