@@ -10,6 +10,11 @@ private Integer id;
 	
 	private Date birthdate;
 	
+	// Constructor
+	protected User() {
+		
+	}
+	
 	public User(Integer id, String name, Date birthdate) {
 		super();
 		this.id = id;
