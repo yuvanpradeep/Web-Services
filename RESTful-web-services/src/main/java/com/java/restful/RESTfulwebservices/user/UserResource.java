@@ -33,6 +33,12 @@ public class UserResource {
 		return user;
 	}
 	
+	@GetMapping("/users/{id}/posts")
+	public List<Posts> retrievePostsOfUser(@PathVariable int id) {
+		List<Posts> posts = service.allPosts(id);
+		return posts;
+	}
+	
 	@PostMapping("/users")
 	public ResponseEntity<Object> createUser(@RequestBody User user) {
 		User savedUser = service.save(user);

@@ -9,12 +9,27 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserDaoService {
 	private static List<User> users = new ArrayList<>();
+	
+	private static List<Posts> posts = new ArrayList<>();
     
+	
+	private static List<Posts> userOnePosts  = new ArrayList<>();
+	{
+	userOnePosts.add(new Posts(10, "Hello world, Good Morning!!"));
+	userOnePosts.add(new Posts(11,"Hello world, Good Aftnoon!!"));
+	}
+	
+	private static List<Posts> userTwoPosts  = new ArrayList<>();
+	{
+		userTwoPosts.add(new Posts(12,"Hi there!!, Good Evening!!"));
+		userTwoPosts.add(new Posts(13,"Everthing gonna be fine!!"));
+	}
+	
 	private static int userCount = 3;
 	//static
 	 {
-	users.add(new User(1, "Yuvan", new Date()));
-	users.add(new User(2, "Pradeep", new Date()));
+	users.add(new User(1, "Yuvan", new Date(), userOnePosts));
+	users.add(new User(2, "Pradeep", new Date(), userTwoPosts));
 	}
 	 
 	// Return all the users
@@ -40,5 +55,15 @@ public class UserDaoService {
 		}
 		users.add(user);
 		return user;
+	}
+	
+	// Return all posts of particular user
+	public List<Posts> allPosts(int id) {
+		for(User user: users) {
+			if(user.getId() == id) {
+				return user.getPostList();
+			}
+		}
+		return null;
 	}
 }
