@@ -18,7 +18,6 @@ public class UserResource {
 	@Autowired
 	private UserDaoService service;
 	 
-
 	@GetMapping("/users")
 	public List<User> retrieveAllUsers() {
 		return service.findAll();
@@ -36,6 +35,12 @@ public class UserResource {
 	@GetMapping("/users/{id}/posts")
 	public List<Posts> retrievePostsOfUser(@PathVariable int id) {
 		List<Posts> posts = service.allPosts(id);
+		return posts;
+	}
+	
+	@GetMapping("/users/{userId}/posts/{postId}")
+	public String retrievePostsOfUser(@PathVariable int userId, @PathVariable int postId) {
+		String posts = service.onePost(userId, postId);
 		return posts;
 	}
 	

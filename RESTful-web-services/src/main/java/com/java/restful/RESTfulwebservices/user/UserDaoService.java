@@ -66,4 +66,18 @@ public class UserDaoService {
 		}
 		return null;
 	}
+	
+	//Return particular post details
+	public String onePost(int userId, int postId) {
+		for(User user: users) {
+			if(user.getId() == userId) {
+				for(Posts post: user.getPostList()) {
+					if(post.getPostId() == postId) {
+						return post.getPostDescription();
+					}
+				}
+			}
+		}
+		return null;
+	}
 }
