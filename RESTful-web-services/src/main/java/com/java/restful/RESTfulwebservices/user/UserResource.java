@@ -3,6 +3,8 @@ package com.java.restful.RESTfulwebservices.user;
 import java.net.URI;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -30,6 +32,11 @@ public class UserResource {
 		if(user == null) {
 			throw new UserNotFoundException("id-" + id);
 		}
+		
+//		Resource<User> resource = new Resource<User>(user);
+//		ControllerLinkBuilder linkTo = linkTo(methodOn(this.getClass()).retrieveAllUsers());
+//	    resource.add(linkTo.withRel("all-users"));
+//	    return resource;
 		return user;
 	}
 	
@@ -57,7 +64,7 @@ public class UserResource {
 	}
 	
 	@PostMapping("/users")
-	public ResponseEntity<Object> createUser(@RequestBody User user) {
+	public ResponseEntity<Object> createUser(@Valid @RequestBody User user) {
 		User savedUser = service.save(user);
 		// return status after created
 		// return URI
