@@ -1,11 +1,13 @@
 package com.java.restful.RESTfulwebservices.user;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
@@ -33,15 +35,16 @@ public class User {
 		return "User [id=" + id + ", name=" + name + ", birthdate=" + birthdate + "]"; //, postList=" + postList + "
 	}
 
-//	private List<Posts> postList = new ArrayList<>();
-//	
-//	public List<Posts> getPostList() {
-//		return postList;
-//	}
-//
-//	public void setPostList(List<Posts> postList) {
-//		this.postList = postList;
-//	}
+	@OneToMany(mappedBy = "user")
+    private List<Posts> postList = new ArrayList<>();
+	
+	public List<Posts> getPostList() {
+		return postList;
+	}
+
+	public void setPostList(List<Posts> postList) {
+		this.postList = postList;
+	}
 
 	// Constructor
 	protected User() {

@@ -1,10 +1,22 @@
 package com.java.restful.RESTfulwebservices.user;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Posts {
 	
+	@Id
+	@GeneratedValue
 	private int postId;
 	
 	private String postDescription;
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	private User user;
 	
 	public Posts(int postId, String postDescription) {
 		super();
