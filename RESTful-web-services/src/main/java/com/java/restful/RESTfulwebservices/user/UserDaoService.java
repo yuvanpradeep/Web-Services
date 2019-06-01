@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class UserDaoService {
 	private static List<User> users = new ArrayList<>();
 	
-	private static List<Posts> posts = new ArrayList<>();
+	//private static List<Posts> posts = new ArrayList<>();
     
 	
 	private static List<Posts> userOnePosts  = new ArrayList<>();
@@ -59,28 +59,28 @@ public class UserDaoService {
 	}
 	
 	// Return all posts of particular user
-	public List<Posts> allPosts(int id) {
-		for(User user: users) {
-			if(user.getId() == id) {
-				return user.getPostList();
-			}
-		}
-		return null;
-	}
+//	public List<Posts> allPosts(int id) {
+//		for(User user: users) {
+//			if(user.getId() == id) {
+//				return user.getPostList();
+//			}
+//		}
+//		return null;
+//	}
 	
 	//Return particular post details
-	public String onePost(int userId, int postId) {
-		for(User user: users) {
-			if(user.getId() == userId) {
-				for(Posts post: user.getPostList()) {
-					if(post.getPostId() == postId) {
-						return post.getPostDescription();
-					}
-				}
-			}
-		}
-		return null;
-	}
+//	public String onePost(int userId, int postId) {
+//		for(User user: users) {
+//			if(user.getId() == userId) {
+//				for(Posts post: user.getPostList()) {
+//					if(post.getPostId() == postId) {
+//						return post.getPostDescription();
+//					}
+//				}
+//			}
+//		}
+//		return null;
+//	}
 	
 	// Delete by ID
 	public User deleteById(int id) {
