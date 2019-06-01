@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import com.web.jpa.JPAproject.entity.User;
 import com.web.jpa.JPAproject.service.UserDAOService;
+import com.web.jpa.JPAproject.service.UserRepository;
 
 
 @Component
@@ -15,14 +16,13 @@ public class UserDAOServiceCommandLineRunner implements CommandLineRunner{
 
 	private static final Logger log = LoggerFactory.getLogger(UserDAOServiceCommandLineRunner.class);
 	
-	
 	@Autowired
-	private UserDAOService userDaoService;
+	private UserRepository userRepository;
 	
 	@Override
 	public void run(String... args) throws Exception {
 		User user = new User("Yuvan","Admin");
-		long userID = userDaoService.insert(user);
+		userRepository.save(user);
 		log.info("New user is created" + user);
 	}
 }
