@@ -1,5 +1,5 @@
-insert into user values(1, sysdate(), 'sql yuvan'); 
-insert into user values(2, sysdate(), 'sql pradeep'); 
-insert into user values(3, sysdate(), 'abc'); 
-insert into user values(4, sysdate(), 'qwerty'); 
-insert into user values(5, sysdate(), 'hello world'); 
+insert into user values(100, sysdate(), 'sql yuvan'); 
+insert into user values(200, sysdate(), 'sql pradeep'); 
+insert into user values(300, sysdate(), 'abc'); 
+insert into user values(400, sysdate(), 'qwerty'); 
+insert into user values(500, sysdate(), 'hello world'); 

@@ -46,13 +46,10 @@ public class UserJPAResource {
 //		//return user;
 //	}
 //	
-//	@DeleteMapping("/jpa/user/{id}")
-//	public void deleteUser(@PathVariable int id) {
-//		User user = service.deleteById(id);
-//		if(user == null) {
-//			throw new UserNotFoundException("id-" + id);
-//		}
-//	}
+	@DeleteMapping("/jpa/user/{id}")
+	public void deleteUser(@PathVariable int id) {
+		userRepository.deleteById(id);
+	}
 //	
 //	@GetMapping("/jpa/users/{id}/posts")
 //	public List<Posts> retrievePostsOfUser(@PathVariable int id) {
@@ -69,17 +66,17 @@ public class UserJPAResource {
 //		return posts;
 //	}
 //	
-//	@PostMapping("/jpa/users")
-//	public ResponseEntity<Object> createUser(@Valid @RequestBody User user) {
-//		User savedUser = service.save(user);
-//		// return status after created
-//		// return URI
-//		URI location = ServletUriComponentsBuilder
-//			.fromCurrentRequest()
-//			.path("/{id}")
-//			.buildAndExpand(savedUser.getId()).toUri();
-//		
-//		return ResponseEntity.created(location).build();
-//			
-	// }
+	@PostMapping("/jpa/users")
+	public ResponseEntity<Object> createUser(@Valid @RequestBody User user) {
+		User savedUser = userRepository.save(user);
+		// return status after created
+		// return URI
+		URI location = ServletUriComponentsBuilder
+			.fromCurrentRequest()
+			.path("/{id}")
+			.buildAndExpand(savedUser.getId()).toUri();
+		
+		return ResponseEntity.created(location).build();
+			
+	 }
 }
